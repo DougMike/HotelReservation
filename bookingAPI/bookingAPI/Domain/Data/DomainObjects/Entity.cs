@@ -2,7 +2,7 @@
 {
     public abstract class Entity
     {
-        public Guid Id { get; set; }
+        public virtual Guid Id { get; set; }
 
         protected Entity()
         {

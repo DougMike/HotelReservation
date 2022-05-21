@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9DTNHGoEtV5GAHef767bHTt0bacRgoq0GkywYq5UjV4iTVrQtgUuHiNXWzyqOJcl60q2jpAYNqW5Zi4pcLD1cg==",
+  "dgSpecHash": "RUoWZtGEIeHCfljBlZEx6LMugxI8sGk6JZzWYjdUW/6jeVUbApwF/czFZbPfrlTWYp0MciDInWFBZprVux+1Dg==",
   "success": true,
   "projectFilePath": "D:\\Programacao\\repos\\HotelReservation\\bookingAPI\\bookingAPI\\bookingAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\dougl\\.nuget\\packages\\fluentvalidation\\11.0.1\\fluentvalidation.11.0.1.nupkg.sha512",
     "C:\\Users\\dougl\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dougl\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\dougl\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

@@ -1,5 +1,6 @@
-﻿using bookingAPI.Data.IRepository;
-using bookingAPI.Models;
+﻿using bookingAPI.Models;
+using bookingAPI.Services;
+using bookingAPI.Services.Validator;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bookingAPI.Controllers
@@ -8,24 +9,39 @@ namespace bookingAPI.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        private readonly IBookingRepository _bookingRepository;
-        public BookingController(IBookingRepository bookingRepository)
+        private readonly IBaseService<Booking> _bookingService;
+        public BookingController(IBaseService<Booking> bookingService)
         {
-            _bookingRepository = bookingRepository;
+            _bookingService = bookingService;
 
         }
         [HttpGet("bookings")]
-        public async Task<IEnumerable<Booking>> GetReservations()
+        public IEnumerable<Booking> GetReservations()
         {
-            return await _bookingRepository.GetAll();
+            return _bookingService.GetAll();
         }
 
         [HttpPost("booking")]
-        public void AddReservation([FromQuery]Booking booking)
+        public IActionResult AddReservation([FromQuery]Booking booking)
         {
-            _bookingRepository.Add(booking);
-            
+            if (booking == null)
+                return NotFound();
 
+            return Execute(() => _bookingService.Add<BookingValidator>(booking).Id);
+        }
+
+        private IActionResult Execute(Func<object> func)
+        {
+            try
+            {
+                var result = func();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
     }
 }

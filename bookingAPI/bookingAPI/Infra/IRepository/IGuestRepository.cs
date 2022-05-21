@@ -1,8 +1,7 @@
 ﻿using bookingAPI.Data.Repository;
 using bookingAPI.Models;
-using System.Linq.Expressions;
 
-namespace bookingAPI.Data.IRepository
+namespace bookingAPI.Infra.IRepository
 {
     public interface IGuestRepository : IRepository<Guest>
     {
