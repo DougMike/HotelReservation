@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9SRH/DtghufhrKKEL/iGIW69Q5ONaD+sLkoc0qJVgxW0fvPcVDOAZ778CuL9+LJHJPaA0NKMkQeLvfQNDeRNIQ==",
+  "dgSpecHash": "9DTNHGoEtV5GAHef767bHTt0bacRgoq0GkywYq5UjV4iTVrQtgUuHiNXWzyqOJcl60q2jpAYNqW5Zi4pcLD1cg==",
   "success": true,
   "projectFilePath": "D:\\Programacao\\repos\\HotelReservation\\bookingAPI\\bookingAPI\\bookingAPI.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\dougl\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.5\\microsoft.entityframeworkcore.design.6.0.5.nupkg.sha512",
     "C:\\Users\\dougl\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.5\\microsoft.entityframeworkcore.relational.6.0.5.nupkg.sha512",
     "C:\\Users\\dougl\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.5\\microsoft.entityframeworkcore.sqlserver.6.0.5.nupkg.sha512",
+    "C:\\Users\\dougl\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.5\\microsoft.entityframeworkcore.tools.6.0.5.nupkg.sha512",
     "C:\\Users\\dougl\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\dougl\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\dougl\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
