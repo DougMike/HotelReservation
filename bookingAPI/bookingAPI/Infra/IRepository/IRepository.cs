@@ -6,7 +6,7 @@ namespace bookingAPI.Data.Repository
     {
         IEnumerable<TEntity> GetAll();
         TEntity GetById(Guid id);
-        void Add(TEntity Entity);
+        void Add(TEntity entity);
 
         void Update(TEntity entity);
 

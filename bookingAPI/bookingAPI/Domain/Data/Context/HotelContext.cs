@@ -1,4 +1,5 @@
-﻿using bookingAPI.Models;
+﻿using bookingAPI.Domain.Data.Models;
+using bookingAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
@@ -10,8 +11,9 @@ namespace bookingAPI.Data.Context
         {
         }
 
-        public DbSet<Room> Rooms { get; set; }
+        public DbSet<BookingRequest> BookingRequests { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Room> Rooms { get; set; }
         public DbSet<Guest> Guests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

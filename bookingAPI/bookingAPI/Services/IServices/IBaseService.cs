@@ -15,7 +15,5 @@ namespace bookingAPI.Services
 
         TEntity Update<TValidator>(TEntity entity) where TValidator : AbstractValidator<TEntity>;
 
-
-
     }
 }

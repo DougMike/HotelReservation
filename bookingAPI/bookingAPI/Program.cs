@@ -1,8 +1,8 @@
 using bookingAPI.Data.Context;
-using bookingAPI.Data.Repository;
+using bookingAPI.Infra.IRepository;
 using bookingAPI.Infra.Repository;
-using bookingAPI.Models;
 using bookingAPI.Services;
+using bookingAPI.Services.IServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 var connection = @"Server=DESKTOP-3M5HJ5O\SQLEXPRESS;Database=Booking;Trusted_Connection=True;";
 builder.Services.AddDbContext<HotelContext>(options => options.UseSqlServer(connection));
 
-builder.Services.AddScoped<IBaseService<Booking>, BookingService>();
-builder.Services.AddScoped<IRepository<Booking>, BookingRepository>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IGuestService, GuestService>();
+builder.Services.AddScoped<IRoomService, RoomService>();
 
+
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+builder.Services.AddScoped<IGuestRepository, GuestRepository>();
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
+builder.Services.AddScoped<IBookingRequestRepository, BookingRequestRepository>();
 
 
 builder.Services.AddControllers();

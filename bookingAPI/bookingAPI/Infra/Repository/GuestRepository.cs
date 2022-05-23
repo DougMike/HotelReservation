@@ -1,38 +1,52 @@
-﻿using bookingAPI.Infra.IRepository;
+﻿using bookingAPI.Data.Context;
+using bookingAPI.Infra.IRepository;
 using bookingAPI.Models;
 
 namespace bookingAPI.Infra.Repository
 {
     public class GuestRepository : IGuestRepository
     {
-        public void Add(Guest Entity)
+        private readonly HotelContext _hotelContext;
+        public GuestRepository(HotelContext hotelContext)
         {
-            throw new NotImplementedException();
+            _hotelContext = hotelContext;
         }
-
-        public void Delete(Guest entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Guest> GetAll()
         {
-            throw new NotImplementedException();
+            return _hotelContext.Guests.ToList();
         }
 
         public Guest GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return _hotelContext.Guests.Where(x => x.Id == id).First();
         }
+
+        public Guest GetGuest(string email, string document)
+        {
+            return _hotelContext.Guests.Where(g => g.Email == email && g.Document == document).FirstOrDefault();
+
+        }
+        public void Add(Guest entity)
+        {
+            _hotelContext.Guests.Add(entity);
+            _hotelContext.SaveChanges();
+        }
+
+        public void Delete(Guest entity)
+        {
+            _hotelContext.Guests.Remove(entity);
+            _hotelContext.SaveChanges();
+        }
+
 
         public void Update(Guest entity)
         {
-            throw new NotImplementedException();
+            _hotelContext.Guests.Update(entity);
+            _hotelContext.SaveChanges();
+        }
+        public void Dispose()
+        {
+            _hotelContext.Dispose();
         }
     }
 }

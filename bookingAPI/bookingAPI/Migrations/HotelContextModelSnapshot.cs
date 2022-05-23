@@ -22,6 +22,32 @@ namespace bookingAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("bookingAPI.Domain.Data.Models.BookingRequest", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("GuestId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookingId");
+
+                    b.HasIndex("GuestId");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("BookingRequests");
+                });
+
             modelBuilder.Entity("bookingAPI.Models.Booking", b =>
                 {
                     b.Property<Guid>("Id")
@@ -43,9 +69,6 @@ namespace bookingAPI.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<Guid?>("RoomId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("RoomNumber")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
@@ -53,9 +76,10 @@ namespace bookingAPI.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
-                    b.HasIndex("RoomId");
+                    b.HasKey("Id");
 
                     b.ToTable("Bookings");
                 });
@@ -89,24 +113,40 @@ namespace bookingAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("RoomNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("RoomNumber")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Rooms");
                 });
 
-            modelBuilder.Entity("bookingAPI.Models.Booking", b =>
+            modelBuilder.Entity("bookingAPI.Domain.Data.Models.BookingRequest", b =>
                 {
-                    b.HasOne("bookingAPI.Room", null)
-                        .WithMany("Bookings")
-                        .HasForeignKey("RoomId");
-                });
+                    b.HasOne("bookingAPI.Models.Booking", "Booking")
+                        .WithMany()
+                        .HasForeignKey("BookingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("bookingAPI.Room", b =>
-                {
-                    b.Navigation("Bookings");
+                    b.HasOne("bookingAPI.Models.Guest", "Guest")
+                        .WithMany()
+                        .HasForeignKey("GuestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("bookingAPI.Room", "Room")
+                        .WithMany()
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Booking");
+
+                    b.Navigation("Guest");
+
+                    b.Navigation("Room");
                 });
 #pragma warning restore 612, 618
         }

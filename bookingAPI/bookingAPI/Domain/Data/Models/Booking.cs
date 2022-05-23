@@ -1,4 +1,6 @@
 ﻿using bookingAPI.Data.DomainObjects;
+using bookingAPI.Domain;
+using System.ComponentModel;
 
 namespace bookingAPI.Models
 {
@@ -10,6 +12,7 @@ namespace bookingAPI.Models
         public string GuestName { get; set; }
         public string GuestEmail { get; set; }
         public string GuestDocument { get; set; }
+        public BookingStatus Status { get; set; }
 
     }
 }

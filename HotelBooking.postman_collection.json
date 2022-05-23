@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "28192980-4638-47ac-8e74-9d9099cdcb80",
+		"name": "HotelBooking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7223/api/Booking/bookings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7223",
+					"path": [
+						"api",
+						"Booking",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostReservation",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n  {\r\n    \"startDate\": \"2022-05-24\",\r\n    \"endDate\": \"2022-05-24\",\r\n    \"roomNumber\": \"1\",\r\n    \"guestName\": \"Guest\",\r\n    \"guestEmail\": \"guest@email\",\r\n    \"guestDocument\": \"123123123123\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7223/api/Booking/booking",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7223",
+					"path": [
+						"api",
+						"Booking",
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetActivesByDocument",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7223/api/Booking/bookings-active-by-document?document=123123123123",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7223",
+					"path": [
+						"api",
+						"Booking",
+						"bookings-active-by-document"
+					],
+					"query": [
+						{
+							"key": "document",
+							"value": "123123123123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CancelBooking",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7223/api/Booking/booking?document=123123123123&startDate=2022-05-24 00:00:00.0000000",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7223",
+					"path": [
+						"api",
+						"Booking",
+						"booking"
+					],
+					"query": [
+						{
+							"key": "document",
+							"value": "123123123123"
+						},
+						{
+							"key": "startDate",
+							"value": "2022-05-24 00:00:00.0000000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

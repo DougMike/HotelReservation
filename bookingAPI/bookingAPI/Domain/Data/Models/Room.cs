@@ -5,8 +5,7 @@ namespace bookingAPI
 {
     public class Room : Entity
     {
-        public int RoomNumber { get; set; }
-        public IEnumerable<Booking> Bookings { get; set; }
+        public string RoomNumber { get; set;}
         
     }
 }

@@ -26,6 +26,7 @@ namespace bookingAPI.Services.Validator
             RuleFor(c => c.EndDate)
                 .NotEmpty().WithMessage("Please enter the final day.")
                 .NotNull().WithMessage("Please enter the final day.");
+
         }
     }
 }
