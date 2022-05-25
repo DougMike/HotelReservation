@@ -1,3 +1,4 @@
+using bookingAPI.Configuration;
 using bookingAPI.Data.Context;
 using bookingAPI.Infra.IRepository;
 using bookingAPI.Infra.Repository;
@@ -11,16 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connection = @"Server=DESKTOP-3M5HJ5O\SQLEXPRESS;Database=Booking;Trusted_Connection=True;";
 builder.Services.AddDbContext<HotelContext>(options => options.UseSqlServer(connection));
 
-builder.Services.AddScoped<IBookingService, BookingService>();
-builder.Services.AddScoped<IGuestService, GuestService>();
-builder.Services.AddScoped<IRoomService, RoomService>();
-
-
-builder.Services.AddScoped<IBookingRepository, BookingRepository>();
-builder.Services.AddScoped<IGuestRepository, GuestRepository>();
-builder.Services.AddScoped<IRoomRepository, RoomRepository>();
-builder.Services.AddScoped<IBookingRequestRepository, BookingRequestRepository>();
-
+builder.Services.RegisterServices();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
